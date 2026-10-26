@@ -9,10 +9,9 @@ contents: read
 jobs:
 build:
 runs-on: ubuntu-latest
-
 steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+- name: Checkout repository
+uses: actions/checkout@v4
 
   - name: Setup Flutter
     uses: subosito/flutter-action@v2
@@ -20,10 +19,9 @@ steps:
       channel: stable
 
   - name: Create Android project
-    run: |
-      flutter create --platforms=android --project-name bangla_cartoon_studio app
+    run: flutter create --platforms=android --project-name bangla_cartoon_studio app
 
-  - name: Copy app files
+  - name: Extract project files
     run: |
       unzip -oq bangla_cartoon_studio_project.zip -d project_files
       cp -r project_files/lib app/
